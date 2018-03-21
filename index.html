@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Health Searcher</title>
+    <title>Provider Search</title>
     <link href="main.css" rel="stylesheet" type="text/css">
     <link href="grid.css" rel="stylesheet" type="text/css">
-  </head>
-  <body style="">
-  	<header class="row" role="banner">
-  		<div class="col-12 header">
-  			<div class="header-content">
-	  			<h1 id="title">Health Info</h1>
-  			</div>
-  		</div>
-  	</header>
-  	<div id="doctors-list">Here is a list of doctors</div>
-  	<div id="map"></div> 
+</head>
 
+<body>
+    <header class="row" role="banner">
+        <div class="col-12 header">
+            <div class="header-content">
+                <h1 id="title">Health Info</h1>
+            </div>
+    </header>
+    <div class="row">
+        <form action="" class="js-search-form">
+            <label for="">Search for a doctor or hospital near you!
+                <input type="text" class="js-search-input">
+            </label>
+        </form>
+    </div>
+    </div>
+    <div id="doctors-list"></div>
+    <div id="hospital-list"></div>
+    <div id="map"></div>
+    
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="index.js"></script>
-  
-</body></html>
+</body>
 
 </html>
