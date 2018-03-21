@@ -15,7 +15,7 @@ function getHospitalList() {
     }).done(function(data) {
         alert("Retrieved " + data.length + " records from the dataset!");
         console.log(data);
-        $.each(data, function(index, city) {
+        $.each(data, function(index, value) {
         	$('.hospital-list').html(
         		`THE ` + data[index].hospital_name + ` IS LOCATED IN ` + data[index].city
         )});
