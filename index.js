@@ -5,28 +5,21 @@ const HOSPITAL_URL = 'https://data.medicare.gov/resource/rbry-mqwu.json';
 function getHospitalList() {
 	$.ajax({
     url: HOSPITAL_URL,
-    type: 'GET',
+    type: "GET",
     data: {
-      '$limit' : 100,
-      hospital_name,
-      address,
-      city,
-      state,
-      zip_code,
-      phone_number,
-      hospital_type,
-      emergency_services,
-      hospital_overall_rating,
+      "$limit" : 25,
+      city: `${city}`,
     }
 }).done(function(data) {
   alert("Retrieved " + data.length + " records from the dataset!");
   console.log(data);
-
 });
 }
 
+getHospitalList();
 
-const DOCTOR_URL = 'https://npiregistry.cms.hhs.gov/api/';
+
+/*const DOCTOR_URL = 'https://npiregistry.cms.hhs.gov/api/';
 
 function getDoctorList(data, callback) {
   const settings = {
@@ -56,7 +49,8 @@ function watchSubmit() {
   $('.js-search-form').submit(function(event) {
     event.preventDefault();
     let query = $(this).find('.js-search-input').val();
-    getDoctorList();
+    getDoctorList(query);
+    getHospitalList(query);
 
 
   });

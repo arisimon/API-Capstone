@@ -10,25 +10,33 @@
 </head>
 
 <body>
-    <header class="row" role="banner">
-        <div class="col-12 header">
-            <div class="header-content">
-                <h1 id="title">Health Info</h1>
-            </div>
-    </header>
-    <div class="row">
-        <form action="" class="js-search-form">
-            <label for="">Search for a doctor or hospital near you!
-                <input type="text" class="js-search-input">
-                <input type="submit" class="js-submit-button">
-            </label>
-        </form>
+    <div class="grid">
+        <header role="banner">
+            <h1>Healthcare Provider Database</h1>
+        </header>
+        <div class="form-grid">
+            <form action="" class="js-search-form">
+                <label for="">Search for a doctor or hospital near you!
+                    <br>
+                    <br>
+                    <input type="text" class="js-search-input">
+                    <input type="submit" class="js-submit-button">
+                </label>
+            </form>
+        </div>
+        <div class="doctors-list">
+            Doctors
+        </div>
+        <div class="hospital-list">
+            Hospitals
+        </div>
+        <div class="map-container" id="map">
+        	Google Maps
+        </div>
+        <footer>
+            <h4>Created by Ari Simon</h4>
+        </footer>
     </div>
-    </div>
-    <div id="doctors-list"></div>
-    <div id="hospital-list"></div>
-    <div id="map"></div>
-
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="index.js"></script>
 </body>
