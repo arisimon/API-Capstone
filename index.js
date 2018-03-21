@@ -8,6 +8,15 @@ function getHospitalList() {
     type: 'GET',
     data: {
       '$limit' : 100,
+      hospital_name,
+      address,
+      city,
+      state,
+      zip_code,
+      phone_number,
+      hospital_type,
+      emergency_services,
+      hospital_overall_rating,
     }
 }).done(function(data) {
   alert("Retrieved " + data.length + " records from the dataset!");
