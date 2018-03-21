@@ -3,11 +3,12 @@
 }
 
 body {
-  max-width: 1000px;
-  margin: 0 auto;
+    margin: 0 auto;
+    /*max-width: 100%; */
+    padding: 1em 0;
+
 }
 
-#map { 
-  height: 480px; 
-  width: 640px;
+h1 {
+  text-align: center;
 }
