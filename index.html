@@ -3,42 +3,49 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <title>Provider Search</title>
     <link href="main.css" rel="stylesheet" type="text/css">
     <link href="grid.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-    <div class="grid">
-        <header role="banner">
-            <h1>Healthcare Provider Database</h1>
-        </header>
-        <div class="form-grid">
-            <form action="" class="js-search-form">
-                <label for="">Search for a doctor or hospital near you!
-                    <br>
-                    <br>
-                    <input type="text" class="js-search-input">
-                    <input type="submit" class="js-submit-button">
-                </label>
-            </form>
+    <header role="banner">
+        <div class="row">
+            <div class="col-12">
+                <h1>Healthcare Provider Database</h1>
+            </div>
+    </header>
+    <main role="main">
+        <div class="row container">
+            <div class="col-12">
+                <form action="" class="js-search-form">
+                    <label>Please enter your location:
+                        <br>
+                        <input type="text" name="search" class="js-search-input">
+                        <input type="submit" name="submit" class="js-submit-button">
+                    </label>
+                </form>
+            </div>
         </div>
-        <div class="doctors-list">
-            Doctors
+            <div class="row">
+                <div class="col-8 hospital-list"></div>
+                <div class="col-8 doctor-list"></div>
+            </div>
+		<div class="row">
+			<div class="col-6 map" id="map"></div> 
+    </main>
+    <footer>
+        <div class="row">
+            <div class="col-12">
+                <h4>Created by Ari Simon</h4>
+            </div>
         </div>
-        <div class="hospital-list">
-            Hospitals
-        </div>
-        <div class="map-container" id="map">
-        	Google Maps
-        </div>
-        <footer>
-            <h4>Created by Ari Simon</h4>
-        </footer>
-    </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
     <script src="index.js"></script>
+    </script>
 </body>
 
 </html>
