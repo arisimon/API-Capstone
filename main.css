@@ -8,8 +8,8 @@ h1 {
   text-align: center;
 }
 
-#map {
-  height: 500px;
+.data-lists {
+  height: auto;
 }
 
 .row {
