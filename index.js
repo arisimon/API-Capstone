@@ -1,5 +1,8 @@
 'use strict';
 
+function bindEventListeners() {
+	watchSubmit();
+}
 
 const HOSPITAL_URL = 'https://data.medicare.gov/resource/rbry-mqwu.json';
 
@@ -48,12 +51,12 @@ function getDoctorList() {
 
     }).done(function(results) {
         console.log(results);
-        $.each(data, function(i, value) {
-        	$('.doctors-list').append(
-        `<div id="w">`
-	    `<div id="content" class="clearfix">`
-	      `<div id="userphoto"><img src="`results.data[i].profile.image_url`" alt="avatar"></div>
-	      	<h1>`results.data[i].profile.first_name + ` ` + results.data[i].profile.last_name + ` ` + results.data[i].profile.title + `</h1>
+        $.each(results, function(i, value) {
+        	$('.hospital-list').append(
+        `<div id="w">
+	    <div id="content" class="clearfix">
+	      <div id="userphoto"><img src="` + results.data[i].profile.image_url + `" alt="avatar"></div>
+	      	<h1>` + results.data[i].profile.first_name + ` ` + results.data[i].profile.last_name + ` ` + results.data[i].profile.title + `</h1>
 
 	      <nav id="profiletabs">
 	        <ul class="clearfix">
@@ -64,18 +67,18 @@ function getDoctorList() {
 	      
 	      <section id="bio">
 	      	<h4><span>Specialties: </span>` + data[i].specialties.name +
-	        `<p>`results.data[i].profile.bio`</p>
+	        `<p>` + results.data[i].profile.bio + `</p>
 	      </section>
 	      
 	      <section id="settings" class="hidden">
 	        <p>Contact Information is listed below:</p>
 
-	        <p class="setting"><span>Practice Name: </span>` + results.data[i].practices.name `</p>
+	        <p class="setting"><span>Practice Name: </span>` + results.data[i].practices.name + `</p>
 	        
 	        <p class="setting"><span>Phone Number: </span>` + results.data[i].practices.phones[0].number `</p>
 	        
 	        <p class="setting"><span>Address: </span>` + results.data[i].practices.visit_address.street + ` ` + results.data[i].practices.visit_address.street2 + `<br>`
-	        results.data[i].practices.visit_address.city + `, ` + results.data[i].practices.visit_address.state + ` ` + results.data[i].practices.visit_address.zip + `</p>
+	        + results.data[i].practices.visit_address.city + `, ` + results.data[i].practices.visit_address.state + ` ` + results.data[i].practices.visit_address.zip + `</p>
 
 	        <p class="setting"><span>Website: </span>` + results.data[i].practices.website + `</p>
 	      </section>
@@ -87,25 +90,40 @@ function getDoctorList() {
         	
 
     });
+    });
+}
 
-
+function handleBio() {
+	$(function(){
+  $('#profiletabs ul li a').on('click', function(e){
+    e.preventDefault();
+    var newcontent = $(this).attr('href');
+    
+    $('#profiletabs ul li a').removeClass('sel');
+    $(this).addClass('sel');
+    
+    $('#content section').each(function(){
+      if(!$(this).hasClass('hidden')) { $(this).addClass('hidden'); }
+    });
+    
+    $(newcontent).removeClass('hidden');
+  });
+});
+}
 
 
 function watchSubmit() {
     $('.js-search-form').submit(function(event) {
         event.preventDefault();
         let query = $(this).find('.js-search-input').val();
-        var why = $('input[name="why"]').val();
-        getHospitalList(query); 
+        var why = $('input[name="why"]').val(); 
         getDoctorList(query);
 
 
         $('.js-search-form').hide();
 
 
-
-
     });
-}
+};
 
-watchSubmit();
+bindEventListeners();
