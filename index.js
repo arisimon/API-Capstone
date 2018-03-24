@@ -31,7 +31,7 @@ function getHospitalList() {
 
 };
 
-const DOCTOR_URL = 'https://developer.betterdoctor.com/documentation15';
+const DOCTOR_URL = 'https://api.betterdoctor.com/2016-03-01/doctors';
 const API_KEY = '8ed32e7cd794252c93e1eaabd46b41d2';
 
 function getDoctorList() {
@@ -42,6 +42,7 @@ function getDoctorList() {
         data: {
             limit: 15,
             user_key: API_KEY,
+            location: 'ca-los-angeles',
         }
 
 
