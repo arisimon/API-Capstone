@@ -50,14 +50,13 @@ function getDoctorList() {
 
 
     }).done(function(results) {
-        console.log(results);
-    }).done(function(results) {
-        $.each(results, function(index, value) {
+        let data = results.data;
+        $.each(data, function(index, value) {
             $('.hospital-list').append(
                 `<div id="w">
 	    <div id="content" class="clearfix">
-	      <div id="userphoto"><img src="` + results.data[index].profile.image_url + `" alt="avatar"></div>
-	      	<h1>` + results.data[index].profile.first_name + ` ` + results.data[index].profile.last_name + ` ` + results.data[index].profile.title + `</h1>
+	      <div id="userphoto"><img src="` + data[index].profile.image_url + `" alt="avatar"></div>
+	      	<h1>` + data[index].profile.first_name + ` ` + data[index].profile.last_name + ` ` + data[index].profile.title + `</h1>
 
 	      <nav id="profiletabs">
 	        <ul class="clearfix">
@@ -68,20 +67,20 @@ function getDoctorList() {
 	      
 	      <section id="bio">
 	      	<h4><span>Specialties: </span>` + data[index].specialties.name +
-                `<p>` + results.data[index].profile.bio + `</p>
+                `<p>` + data[index].profile.bio + `</p>
 	      </section>
 	      
 	      <section id="settings" class="hidden">
 	        <p>Contact Information is listed below:</p>
 
-	        <p class="setting"><span>Practice Name: </span>` + results.data[index].practices[0].name + `</p>
+	        <p class="setting"><span>Practice Name: </span>` + data[index].practices[0].name + `</p>
 	        
-	        <p class="setting"><span>Phone Number: </span>` + results.data[index].practices[0].phones[0].number `</p>
+	        <p class="setting"><span>Phone Number: </span>` + data[index].practices[0].phones[0].number + `</p>
 	        
-	        <p class="setting"><span>Address: </span>` + results.data[index].practices[0].visit_address.street + ` ` + results.data[index].practices[0].visit_address.street2 + `<br>` +
-                results.data[index].practices[0].visit_address.city + `, ` + results.data[index].practices[0].visit_address.state + ` ` + results.data[index].practices[0].visit_address.zip + `</p>
+	        <p class="setting"><span>Address: </span>` + data[index].practices[0].visit_address.street + ` ` + data[index].practices[0].visit_address.street2 + `<br>` +
+                data[index].practices[0].visit_address.city + `, ` + data[index].practices[0].visit_address.state + ` ` + data[index].practices[0].visit_address.zip + `</p>
 
-	        <p class="setting"><span>Website: </span>` + results.data[i].practices.website + `</p>
+	        <p class="setting"><span>Website: </span>` + data[index].practices.website + `</p>
 	      </section>
 	    </div>
   </div>
@@ -117,7 +116,6 @@ function watchSubmit() {
     $('.js-search-form').submit(function(event) {
         event.preventDefault();
         let query = $(this).find('.js-search-input').val();
-        var why = $('input[name="why"]').val();
         getDoctorList(query);
 
 
