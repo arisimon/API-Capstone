@@ -5,10 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <title>Provider Search</title>
-    <link rel="shortcut icon" type="image/png" href="http://www.mobilehealthsummit.ca/wp-content/uploads/2016/11/mhealth-favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="http://www.mobilehealthsummit.ca/wp-content/uploads/2016/11/mhealth-favicon.png" />
     <link href="main.css" rel="stylesheet" type="text/css">
     <link href="grid.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="bio.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script> -->
 </head>
 
@@ -21,26 +22,42 @@
     </header>
     <main role="main">
         <div class="row container">
-            <div class="col-12">
-                <form action="" class="js-search-form">
-                    <label>Search for a hospital:
-                        <br>
-                        <input type="text" name="search" class="js-search-input">
-                        <input type="submit" name="submit" class="js-submit-button">
-                    </label>
-                    <br>
-                    <label>Search for a doctor:
-                        <br>
-                        <input type="text" name="search" class="js-search-input2">
-                        <input type="submit" name="submit" class="js-submit-button2">
-                    </label>
+            <div class="col-12 js-input-container">
+                <form class="decision-form row">
+                    <div class="col-8 radios">
+                        <p>Would you like to search for Hospitals or Doctors?</p>
+                        <input type="radio" id="radio_hospital" name="selection" value="Hospital">
+                        <label for="radio_hospital">Hospital</label>
+                        <input type="radio" id="radio_doctor" name="selection" value="Doctor">
+                        <label for="radio_doctor">Doctor</label>
+                    </div>
+                    <div class="row hospital-search">
+                        <div class="col-8 hospital_search_container hidden">
+                            <label for="hospital_search">Enter a Valid Zip Code</label>
+                            <br>
+                            <input id="hospital_search" class="zipcode" type="text" value="" pattern="\d{5,5}(-\d{4,4})?">
+                            <br>
+                            <input type="submit" class="submit-btn" id="hospital-submit" value="Submit">
+                        </div>
+                    </div>
+                    <div class="row doctor-search">
+                        <div class="col-8 doctor_search_container hidden">
+                            <label for="doctor_search">Please Enter a State and City in the Following Format:
+                                <br><strong><em> ca-los-angeles</em><strong></label>
+                            <br>
+                            <br>
+                            <input id="doctor_search" class="" type="text" value="">
+                            <br>
+                            <input type="submit" class="submit-btn" id="doctor-submit" value="Submit">
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
-            <div class="row data-lists">
-                <div class="col-8 hospital-list"></div>
-                <div class="col-8 doctor-list"></div>
-            </div>
+        <div class="row data-lists">
+            <div class="col-8 hospital-list"></div>
+            <div class="col-8 doctor-list"></div>
+        </div>
     </main>
     <footer>
         <div class="row">

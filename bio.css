@@ -70,8 +70,7 @@
 
 #bio {
   font-weight: 400;
-  text-transform: uppercase;
-  font-variant: small-caps;
+  font-variant: common-ligatures;
 }
 
 
@@ -96,8 +95,4 @@ html[xmlns] .clearfix {
 
 * html .clearfix {
     height: 1%;
-}
-
-.address {
-  text-align: right;
 }

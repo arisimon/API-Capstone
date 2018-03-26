@@ -6,13 +6,12 @@ body {
 }
 
 h1 {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 2.5em;
     line-height: 1.5em;
     letter-spacing: -0.05em;
     margin-bottom: 20px;
     padding: .1em 0;
-    color: #444;
     position: relative;
     overflow: hidden;
     white-space: nowrap;
@@ -47,7 +46,7 @@ h1>span {
 }
 
 h2 {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 2.1em;
     line-height: 1.4em;
     letter-spacing: normal;
@@ -59,7 +58,12 @@ h2 {
     white-space: nowrap;
 }
 
+h4 {
+  font-family: 'Open Sans', sans-serif;
+}
+
 p {
+    font-family: 'Open Sans', sans-serif;
     display: block;
     font-size: 1em;
     line-height: 1.55em;
@@ -83,11 +87,35 @@ a:hover {
     margin: 0 auto;
 }
 
+.radios {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+input[type="text"] {
+  display: block;
+  margin: 0 auto;
+}
+
 form {
     text-align: center;
 }
 
+.col-8 {
+  padding-top: 25px;
+}
 
+label, input {
+  font-family: 'Open Sans', sans-serif;
+}
+
+label[for="hospital_search"]  {
+    line-height: 3em;
+}
+
+label[for="doctor_search"] {
+  line-height: 2em;
+}
 .hospital-list {
     width: 100%;
 }
