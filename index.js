@@ -175,7 +175,7 @@ function formValidation() {
 
     function watchSubmit() {
 
-        $('.decision-form').submit(function(event) {
+        $('form').submit(function(event) {
 
             $('.js-search-form').hide();
             if (which = "#hospital-sub") {
