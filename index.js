@@ -2,7 +2,7 @@
 
 function bindEventListeners() {
     hospitalOrDoctor();
-    formValidation();
+    handleSubmitButton();
 
 }
 
@@ -151,47 +151,52 @@ function hospitalOrDoctor() {
     );
 }
 
-function getValue() {
-    $('.hospital-sub').click(function() {
-        var text_value = $('#hospital_search"').val();
-        if (text_value == '') {
-            alert("Enter Some Text In Input Field");
-        } else {
-            console.log(text_value);
-        }
-    });
-}
-
-function formValidation() {
-    let which;
-
-    function checkButton() {
-        $('.sub-btn').click(function() {
-            which = $('input[type=submit').attr("id");
-        });
-        console.log(which);
+function handleSubmitButton() {
+    $("#decision-form button").click(function(event){
+    event.preventDefault()// cancel form submission
+    if($(this).attr("id")=="hospital-sub"){
+        console.log($(this).attr("id"));
+        console.log($("input[type='text']").val())
     }
-    checkButton();
-
-    function watchSubmit() {
-
-        $('form').submit(function(event) {
-
-            $('.js-search-form').hide();
-            if (which = "#hospital-sub") {
-                event.preventDefault();
-                getHospitalList();
-            } else {
-                event.preventDefault();
-                getDoctorList();
-            }
-
-            watchSubmit();
-
-
-        });
-    };
+    else {
+        console.log($(this).attr("id"));
+        console.log($("input[type='text']").val())
+    }
+    // $("#my-form").submit(); if you want to submit the form
+});
 }
+
+
+// function formValidation() {
+//     let which;
+
+//     function checkButton() {
+//         $('#decision-form button').click(function() {
+//             which = $(this).attr("id");
+//         });
+//         console.log(which);
+//     }
+//     checkButton();
+
+//     function watchSubmit() {
+
+//         $('form').submit(function(event) {
+
+//             $('.js-search-form').hide();
+//             if (which = "#hospital-sub") {
+//                 event.preventDefault();
+//                 getHospitalList();
+//             } else {
+//                 event.preventDefault();
+//                 getDoctorList();
+//             }
+
+//             watchSubmit();
+
+
+//         });
+//     };
+// }
 
 
 

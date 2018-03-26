@@ -22,7 +22,7 @@
     <main role="main">
         <div class="row container">
             <div class="col-12 js-input-container">
-                <form class="decision-form row">
+                <form class="row" id="decision-form">
                     <div class="col-8 radios">
                         <h3>Are you searching for a Hospital or a Doctor?</h3>
                         <label for="radio_hospital">
@@ -40,7 +40,7 @@
                             <br>
                             <input id="hospital_search" class="zipcode" type="text" value="" pattern="\d{5,5}(-\d{4,4})?">
                             <br>
-                            <input type="submit" class="sub-btn" id="hospital-sub" value="Submit">
+                            <button type="submit" class="sub-btn" id="hospital-sub" value="Submit">Submit</button>
                         </div>
                     </div>
                     <div class="row doctor-search">
@@ -49,9 +49,9 @@
                                 <br><strong><em> ex: ca-los-angeles</em></strong></label>
                             <br>
                             <br>
-                            <input id="doctor_search" class="" type="text" value="">
+                            <input id="doctor_search" type="text" value="">
                             <br>
-                            <input type="submit" class="sub-btn" id="doctor-sub" value="Submit">
+                            <button type="submit" class="sub-btn" id="doctor-sub" value="Submit">Submit</button>
                         </div>
                     </div>
                 </form>

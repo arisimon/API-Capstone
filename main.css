@@ -214,7 +214,7 @@ label[for="doctor_search"] {
     border: 0px solid #dbdbdb;
 }
 
-input[type="submit"] {
+button[type="submit"] {
     position: relative;
     padding: 6px 15px;
     background-color: #6699CC;
@@ -223,7 +223,7 @@ input[type="submit"] {
     height: 3em;
 }
 
-input[type="submit"]:hover {
+button[type="submit"]:hover {
     background-color: #FDB829;
     color: #0B2051;
 }
