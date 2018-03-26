@@ -59,7 +59,7 @@ h2 {
 }
 
 h4 {
-  font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 p {
@@ -88,13 +88,13 @@ a:hover {
 }
 
 .radios {
-  text-align: center;
-  font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
 }
 
 input[type="text"] {
-  display: block;
-  margin: 0 auto;
+    display: block;
+    margin: 0 auto;
 }
 
 form {
@@ -102,20 +102,27 @@ form {
 }
 
 .col-8 {
-  padding-top: 25px;
+    padding-top: 25px;
 }
 
-label, input {
-  font-family: 'Open Sans', sans-serif;
+input[type="radio"]{
+  margin: 0 5px 0 35px;
 }
 
-label[for="hospital_search"]  {
+label,
+input {
+    font-family: 'Open Sans', sans-serif;
+}
+
+label[for="hospital_search"] {
     line-height: 3em;
 }
 
 label[for="doctor_search"] {
-  line-height: 2em;
+    line-height: 2em;
 }
+
+
 .hospital-list {
     width: 100%;
 }

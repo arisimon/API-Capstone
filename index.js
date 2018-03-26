@@ -2,8 +2,7 @@
 
 function bindEventListeners() {
     hospitalOrDoctor();
-    checkButton();
-    watchSubmit();
+    formValidation();
 
 }
 
@@ -153,30 +152,33 @@ function hospitalOrDoctor() {
     );
 }
 
-let which;
+function formValidation() {
+    let which;
 
-function checkButton() {
-    $("submit").click(function() {
-        which = $(this).attr("id");
-        alert(which);
-    });
+    function checkButton() {
+        $("sub-btn").click(function() {
+            which = $(this).attr("id");
+        });
+    }
+
+    function watchSubmit() {
+
+        $('.decision-form').submit(function(event) {
+
+            $('.js-search-form').hide();
+            if (which = "hospital-sub") {
+                event.preventDefault();
+                getHospitalList();
+            } else {
+                event.preventDefault();
+                getDoctorList();
+            }
+
+
+        });
+    };
 }
 
-function watchSubmit() {
 
-    $('.decision-form').submit(function(event) {
-
-        $('.js-search-form').hide();
-        if (which = "hospital-submit") {
-            event.preventDefault();
-            getHospitalList();
-        } else {
-            event.preventDefault();
-            getDoctorList();
-        }
-
-
-    });
-};
 
 bindEventListeners();
