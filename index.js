@@ -16,7 +16,7 @@ function getHospitalList() {
         dataType: "json",
         data: {
             "$limit": 15,
-            zip_code: $('input[type=text]').val(),
+            zip_code: $(`input[type='text']`).val(),
         }
 
 
@@ -87,7 +87,7 @@ function getDoctorList() {
         data: {
             limit: 15,
             user_key: API_KEY,
-            location: $('input[type=text]').val(),
+            location: 'ca-los-angeles',
         }
 
 
@@ -140,7 +140,6 @@ function hospitalOrDoctor() {
                 createHospitalInput();
 
 
-
             } else {
                 function createDoctorInput() {
                     $('.doctor_search_container').removeClass('hidden');
@@ -152,27 +151,42 @@ function hospitalOrDoctor() {
     );
 }
 
+function getValue() {
+    $('.hospital-sub').click(function() {
+        var text_value = $('#hospital_search"').val();
+        if (text_value == '') {
+            alert("Enter Some Text In Input Field");
+        } else {
+            console.log(text_value);
+        }
+    });
+}
+
 function formValidation() {
     let which;
 
     function checkButton() {
-        $("sub-btn").click(function() {
-            which = $(this).attr("id");
+        $('.sub-btn').click(function() {
+            which = $('input[type=submit').attr("id");
         });
+        console.log(which);
     }
+    checkButton();
 
     function watchSubmit() {
 
         $('.decision-form').submit(function(event) {
 
             $('.js-search-form').hide();
-            if (which = "hospital-sub") {
+            if (which = "#hospital-sub") {
                 event.preventDefault();
                 getHospitalList();
             } else {
                 event.preventDefault();
                 getDoctorList();
             }
+
+            watchSubmit();
 
 
         });

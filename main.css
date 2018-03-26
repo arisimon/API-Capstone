@@ -99,14 +99,100 @@ input[type="text"] {
 
 form {
     text-align: center;
+    width: 500px;
+    margin: 50px auto;
 }
 
 .col-8 {
     padding-top: 25px;
 }
 
-input[type="radio"]{
-  margin: 0 5px 0 35px;
+.search_container {
+    margin-top: 35px;
+}
+
+input[type="radio"] {
+    margin: 0 5px 0 35px;
+}
+
+label>input[type="radio"] {
+    /* HIDE RADIO */
+    visibility: hidden;
+    /* Makes input not-clickable */
+    position: absolute;
+    /* Remove input from document flow */
+}
+
+label>input[type="radio"]+img {
+    /* IMAGE STYLES */
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+label>input[type="radio"]:checked+img {
+    /* (RADIO CHECKED) IMAGE STYLES */
+    border: 2px solid #B0B1B1;
+    border-radius: 50%;
+}
+
+label[for="radio-hospital"] {
+    padding-right: 80px;
+}
+
+.hospital-logo {
+    margin-right: 50px;
+}
+
+
+.option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 13.33333px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    transition: all 0.15s ease-out 0s;
+    background: #b0b1b1;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.5rem;
+    outline: none;
+    border-radius: 50%;
+    z-index: 1000;
+}
+
+.option-input:hover {
+    background: #696969;
+}
+
+.option-input:checked {
+    background: #6699CC;
+    border: 10px solid #FDB829;
+}
+
+.option-input:checked::after {
+    -webkit-animation: click-wave 0.8s;
+    -moz-animation: click-wave 0.8s;
+    animation: click-wave 0.8s;
+    background: #FDB829;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+
+.decision-form input[type='text'] {
+    height: 35px;
+    width: 20em;
+    margin-top: 10px;
 }
 
 label,
@@ -115,13 +201,32 @@ input {
 }
 
 label[for="hospital_search"] {
-    line-height: 3em;
+    line-height: 2em;
 }
 
 label[for="doctor_search"] {
     line-height: 2em;
 }
 
+.sbt-btn {
+    padding: 8px 15px;
+    background: rgba(50, 50, 50, 0.2);
+    border: 0px solid #dbdbdb;
+}
+
+input[type="submit"] {
+    position: relative;
+    padding: 6px 15px;
+    background-color: #6699CC;
+    color: #fafafa;
+    width: 10em;
+    height: 3em;
+}
+
+input[type="submit"]:hover {
+    background-color: #FDB829;
+    color: #0B2051;
+}
 
 .hospital-list {
     width: 100%;
@@ -136,4 +241,9 @@ label[for="doctor_search"] {
 
 footer {
     text-align: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
 }

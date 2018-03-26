@@ -10,7 +10,6 @@
     <link href="grid.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="bio.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script> -->
 </head>
 
 <body>
@@ -25,15 +24,19 @@
             <div class="col-12 js-input-container">
                 <form class="decision-form row">
                     <div class="col-8 radios">
-                        <p>Would you like to search for Hospitals or Doctors?</p>
-                        <input type="radio" id="radio_hospital" name="selection" value="Hospital">
-                        <label for="radio_hospital">Hospital</label>
-                        <input type="radio" id="radio_doctor" name="selection" value="Doctor">
-                        <label for="radio_doctor">Doctor</label>
+                        <h3>Are you searching for a Hospital or a Doctor?</h3>
+                        <label for="radio_hospital">
+                        <input type="radio" id="radio_hospital" class="option-input"  name="selection" value="Hospital">
+                        <img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/128x128/hospital.png" class="hospital-logo" alt="hospital-logo">
+                        </label>
+                        <label for="radio_doctor">
+                        <input type="radio" id="radio_doctor" class="option-input" name="selection" value="Doctor">
+                        <img src="https://www.shareicon.net/data/128x128/2016/08/18/813848_people_512x512.png" class="doctor-logo" alt="doctor-logo">
+                        </label>
                     </div>
                     <div class="row hospital-search">
                         <div class="col-8 hospital_search_container hidden">
-                            <label for="hospital_search">Enter a Valid Zip Code</label>
+                            <label for="hospital_search">Enter a Valid Zip Code <br><strong><em> ex: 90064</em></strong></label>
                             <br>
                             <input id="hospital_search" class="zipcode" type="text" value="" pattern="\d{5,5}(-\d{4,4})?">
                             <br>
@@ -43,7 +46,7 @@
                     <div class="row doctor-search">
                         <div class="col-8 doctor_search_container hidden">
                             <label for="doctor_search">Please Enter a State and City in the Following Format:
-                                <br><strong><em> ca-los-angeles</em><strong></label>
+                                <br><strong><em> ex: ca-los-angeles</em></strong></label>
                             <br>
                             <br>
                             <input id="doctor_search" class="" type="text" value="">
@@ -59,13 +62,13 @@
             <div class="col-8 doctor-list"></div>
         </div>
     </main>
-    <footer>
+    <!-- <footer>
         <div class="row">
             <div class="col-12">
                 <h4>Created by Ari Simon</h4>
             </div>
         </div>
-    </footer>
+    </footer> -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="index.js"></script>
     </script>
