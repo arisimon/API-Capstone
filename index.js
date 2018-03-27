@@ -151,52 +151,38 @@ function hospitalOrDoctor() {
     );
 }
 
+//handle submit button and run request based off which button is pressed
 function handleSubmitButton() {
-    $("#decision-form button").click(function(event){
-    event.preventDefault()// cancel form submission
-    if($(this).attr("id")=="hospital-sub"){
-        console.log($(this).attr("id"));
-        console.log($("input[type='text']").val())
+    let which;
+
+    function checkButton() {
+        $("#decision-form button").click(function(event) {
+            event.preventDefault();
+            let which = $(this).attr("id");
+            console.log(which);
+            
+
+        });
+    };
+    checkButton();
+
+    function watchSubmit() {
+        $('form').submit(function(event) {
+            event.preventDefault();
+            ('js-search-form').hide();
+            if (which = 'hospital-sub') {
+                let query = $('#hospital_search').val();
+                console.log(query);
+
+            } else {
+                let input = $("#doctor_search").val();
+                console.log(input);
+                getDoctorList(input);
+            }
+        });
     }
-    else {
-        console.log($(this).attr("id"));
-        console.log($("input[type='text']").val())
-    }
-    // $("#my-form").submit(); if you want to submit the form
-});
+    watchSubmit();
 }
-
-
-// function formValidation() {
-//     let which;
-
-//     function checkButton() {
-//         $('#decision-form button').click(function() {
-//             which = $(this).attr("id");
-//         });
-//         console.log(which);
-//     }
-//     checkButton();
-
-//     function watchSubmit() {
-
-//         $('form').submit(function(event) {
-
-//             $('.js-search-form').hide();
-//             if (which = "#hospital-sub") {
-//                 event.preventDefault();
-//                 getHospitalList();
-//             } else {
-//                 event.preventDefault();
-//                 getDoctorList();
-//             }
-
-//             watchSubmit();
-
-
-//         });
-//     };
-// }
 
 
 
