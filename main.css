@@ -109,7 +109,7 @@ form {
     padding-top: 25px;
 }
 
-.search_container {
+.search-container {
     margin-top: 35px;
 }
 
@@ -214,8 +214,8 @@ input {
     font-family: 'Open Sans', sans-serif;
 }
 
-label[for="hospital_search"],
-label[for="doctor_search"] {
+label[for="hospital-search"],
+label[for="doctor-search"] {
     line-height: 1.5em;
     font-size: 24px;
     font-family: 'Montserrat', sans-serif;

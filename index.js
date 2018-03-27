@@ -174,16 +174,16 @@ function hospitalOrDoctor() {
         function() {
             if ($(this).val() == 'Hospital') {
                 function createHospitalInput() {
-                    $('.hospital_search_container').removeClass('hidden');
-                    $('.doctor_search_container').addClass('hidden');
+                    $('.hospital-search-container').removeClass('hidden');
+                    $('.doctor-search-container').addClass('hidden');
                 }
                 createHospitalInput();
 
 
             } else {
                 function createDoctorInput() {
-                    $('.doctor_search_container').removeClass('hidden');
-                    $('.hospital_search_container').addClass('hidden');
+                    $('.doctor-search-container').removeClass('hidden');
+                    $('.hospital-search-container').addClass('hidden');
                 }
                 createDoctorInput();
             };
@@ -194,28 +194,42 @@ function hospitalOrDoctor() {
 //go to content on click
 function moveToContent() {
     $('html,body').animate({
-        scrollTop: $(".data-lists").offset().top},
+            scrollTop: $(".data-lists").offset().top
+        },
         '2000');
+}
+
+//format user doctor input to proper format
+function formatDoctorInput(input) {
+    let res = input.replace(/^[, ]+|[, ]+$|[, ]+/g, " ").trim();
+    let split = res.split(' ');
+    let state = split.pop();
+    split.unshift(state);
+    let final = split.join('-');
+    final.toLowerCase();
 }
 
 
 //handle submit button and run request based off which button is pressed
 function checkButton() {
+
     $("#decision-form button").click(function(event) {
         event.preventDefault();
         let which = $(this).attr("id");
         console.log(which);
 
         if (which == 'hospital-sub') {
-            let query = $('#hospital_search').val();
+            let query = $('#hospital-search').val();
             console.log(query);
             getHospitalList(query);
             moveToContent();
 
         } else {
-            let input = $("#doctor_search").val().toLowerCase();
-            console.log(input);
-            getDoctorList(input);
+            let input = $("#doctor-search").val();
+            let formatInput = formatDoctorInput(input);
+            return formatInput;
+            console.log(formatInput);
+            getDoctorList(formatInput);
             moveToContent();
 
         }
