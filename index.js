@@ -39,31 +39,31 @@ function getHospitalList(city) {
 
             $('.hospital-list').append(
                 `<div class="col-8" id="content" class="clearfix">
-			        <div id="userphoto"><img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/128x128/hospital.png" alt="hospital-icon"></div>
-			          <h2>` + formatHospital + `</h2>     
-			        <section id="hospital-info">
-			          <h4><span>Hospital Type: </span>` + data[index].hospital_ownership + `</h4>
-			          <h4 class="address"><span>Address: </span>` + formatAddress + `, ` + formatCity + `, ` + data[index].state + ` ` + data[index].zip_code + `</h4>
-			          <h4><span>Phone Number: </span>` + formatPhone + `</h4>
-			          
-			        </section>
-			        
-			        <section id="hospital-details">
-			          <p><i>How Does This Hospital Compare to the National Average?</i></p>
+                    <div id="userphoto"><img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/128x128/hospital.png" alt="hospital-icon"></div>
+                      <h2>` + formatHospital + `</h2>     
+                    <section id="hospital-info">
+                      <h4><span>Hospital Type: </span>` + data[index].hospital_ownership + `</h4>
+                      <h4 class="address"><span>Address: </span>` + formatAddress + `, ` + formatCity + `, ` + data[index].state + ` ` + data[index].zip_code + `</h4>
+                      <h4><span>Phone Number: </span>` + formatPhone + `</h4>
+                      
+                    </section>
+                    
+                    <section id="hospital-details">
+                      <p><i>How Does This Hospital Compare to the National Average?</i></p>
 
-			          <p class="detail"><span>Effectiveness of Care: </span>` + data[index].effectiveness_of_care_national_comparison + `</p>
-			          
-			          <p class="detail"><span>Patient Experience: </span>` + data[index].patient_experience_national_comparison + `</p>
-			          
-			          <p class="detail"><span>Mortality Rate: </span>` + data[index].mortality_national_comparison + `</p>
+                      <p class="detail"><span>Effectiveness of Care: </span>` + data[index].effectiveness_of_care_national_comparison + `</p>
+                      
+                      <p class="detail"><span>Patient Experience: </span>` + data[index].patient_experience_national_comparison + `</p>
+                      
+                      <p class="detail"><span>Mortality Rate: </span>` + data[index].mortality_national_comparison + `</p>
 
-			          <p class="detail"><span>Safety of Care: </span>` + data[index].safety_of_care_national_comparison + `</p>
-			          
-			          <p class="detail"><span>Timeliness of Care: </span>` + data[index].timeliness_of_care_national_comparison + `</p>
+                      <p class="detail"><span>Safety of Care: </span>` + data[index].safety_of_care_national_comparison + `</p>
+                      
+                      <p class="detail"><span>Timeliness of Care: </span>` + data[index].timeliness_of_care_national_comparison + `</p>
 
-			        </section>
-			      </div>
-			  </div>`
+                    </section>
+                  </div>
+              </div>`
             )
             if ($('.doctor-list').length) {
                 $('.doctor-list').children().remove();
@@ -82,6 +82,7 @@ function toTitleCase(str) {
     }).join(' ');
 }
 
+//control back to top button
 function backToTop() {
     $(window).scroll(function() {
         if ($(this).scrollTop()) {
@@ -90,9 +91,18 @@ function backToTop() {
             $('#toTop').fadeOut();
         }
     });
-
+    //actions on to top button click -- essentially reset page
     $("#toTop").click(function() {
         $("html, body").animate({ scrollTop: 0 }, 1000);
+        $("input[type='text']").val('');
+
+        if ($('.doctor-list').length) {
+            $('.doctor-list').children().remove();
+        }
+        if ($('.hospital-list').length) {
+            $('.hospital-list').children().remove();
+        }
+
     });
 }
 
@@ -124,27 +134,27 @@ function getDoctorList(location) {
             console.log('data successfully loaded', data);
             $('.doctor-list').append(
                 `<div class="col-8" id="content" class="clearfix">
-						      <div id="userphoto"><img src="` + data[index].profile.image_url + `" alt="avatar"></div>
-						      	<h2>` + data[index].profile.first_name + ` ` + data[index].profile.last_name + `, ` + data[index].profile.title + `</h2>     
-						      <section id="bio">
-						      	<h4><span>Specialties: </span>` + data[index].specialties[0].name +
+                              <div id="userphoto"><img src="` + data[index].profile.image_url + `" alt="avatar"></div>
+                                <h2>` + data[index].profile.first_name + ` ` + data[index].profile.last_name + `, ` + data[index].profile.title + `</h2>     
+                              <section id="bio">
+                                <h4><span>Specialties: </span>` + data[index].specialties[0].name +
                 `<p id="bio">` + data[index].profile.bio + `</p>
-						      </section>
+                              </section>
 
-						      <section id="doctor-details">
-						        <p><i>Contact Information is listed below:</i></p>
+                              <section id="doctor-details">
+                                <p><i>Contact Information is listed below:</i></p>
 
-						        <p class="detail"><span>Practice Name: </span>` + data[index].practices[0].name + `</p>
+                                <p class="detail"><span>Practice Name: </span>` + data[index].practices[0].name + `</p>
 
-						        <p class="detail"><span>Phone Number: </span>` + formatPhone + `</p>
+                                <p class="detail"><span>Phone Number: </span>` + formatPhone + `</p>
 
-						        <p class="detail"><span>Address: </span>` + data[index].practices[0].visit_address.street + `, ` +
+                                <p class="detail"><span>Address: </span>` + data[index].practices[0].visit_address.street + `, ` +
                 data[index].practices[0].visit_address.city + `, ` + data[index].practices[0].visit_address.state + ` ` + data[index].practices[0].visit_address.zip + `</p>
 
-						        <p class="detail"><span>National Provider Identifier Standard (NPI) Number: </span>` + data[index].npi + `</p>
-						      </section>
-						    </div>
-					  </div>`
+                                <p class="detail"><span>National Provider Identifier Standard (NPI) Number: </span>` + data[index].npi + `</p>
+                              </section>
+                            </div>
+                      </div>`
 
             );
             if ($('.hospital-list').length) {
@@ -180,6 +190,13 @@ function hospitalOrDoctor() {
     );
 }
 
+//go to content on click
+function moveToContent() {
+    $('html,body').animate({
+        scrollTop: $(".data-lists").offset().top},
+        '2000');
+}
+
 
 //handle submit button and run request based off which button is pressed
 function checkButton() {
@@ -192,12 +209,14 @@ function checkButton() {
             let query = $('#hospital_search').val();
             console.log(query);
             getHospitalList(query);
+            moveToContent();
 
         } else {
             let input = $("#doctor_search").val().toLowerCase();
             console.log(input);
-
             getDoctorList(input);
+            moveToContent();
+
         }
 
 
