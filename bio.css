@@ -79,8 +79,8 @@
     font-size: 20px;
 }
 
-#hospital_search_container,
-#doctor_search_container {
+.hospital_search_container,
+.doctor_search_container {
     text-align: center;
 }
 
