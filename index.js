@@ -136,7 +136,7 @@ function getDoctorList(location) {
 
 						        <p class="detail"><span>Practice Name: </span>` + data[index].practices[0].name + `</p>
 
-						        <p class="detail"><span>Phone Number: </span>` + data[index].practices[0].phones[0].number + `</p>
+						        <p class="detail"><span>Phone Number: </span>` + formatPhone + `</p>
 
 						        <p class="detail"><span>Address: </span>` + data[index].practices[0].visit_address.street + `, ` +
                 data[index].practices[0].visit_address.city + `, ` + data[index].practices[0].visit_address.state + ` ` + data[index].practices[0].visit_address.zip + `</p>
