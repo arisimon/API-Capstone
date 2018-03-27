@@ -17,6 +17,7 @@ function getHospitalList(zip) {
         data: {
             "$limit": 15,
             location_zip: zip,
+            "$$app_token": "gK0Y0BlDIwKZ3ddE4ZxzecEJA";
         }
 
 
@@ -85,7 +86,6 @@ function getDoctorList(location) {
         type: "GET",
         dataType: "json",
         data: {
-            limit: 15,
             user_key: API_KEY,
             location: location,
         }
