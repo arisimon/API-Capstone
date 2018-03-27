@@ -24,35 +24,34 @@
             <div class="col-12 js-input-container">
                 <form class="row" id="decision-form">
                     <div class="col-8 radios">
-                        <h3>Are You Searching For a Hospital or a Doctor?</h3>
+                        <h3>Are you searching for a Hospital or a Doctor?</h3>
                         <label for="radio_hospital">
-                            <input type="radio" id="radio_hospital" class="option-input" name="selection" value="Hospital">
-                            <img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/128x128/hospital.png" class="hospital-logo" alt="hospital-logo">
+                        <input type="radio" id="radio_hospital" class="option-input"  name="selection" value="Hospital">
+                        <img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/128x128/hospital.png" class="hospital-logo" alt="hospital-logo">
                         </label>
                         <label for="radio_doctor">
-                            <input type="radio" id="radio_doctor" class="option-input" name="selection" value="Doctor">
-                            <img src="https://www.shareicon.net/data/128x128/2016/08/18/813848_people_512x512.png" class="doctor-logo" alt="doctor-logo">
+                        <input type="radio" id="radio_doctor" class="option-input" name="selection" value="Doctor">
+                        <img src="https://www.shareicon.net/data/128x128/2016/08/18/813848_people_512x512.png" class="doctor-logo" alt="doctor-logo">
                         </label>
                     </div>
                     <div class="row hospital-search">
                         <div class="col-8 hospital_search_container hidden">
-                            <label for="hospital_search">Enter a City Name:
-                                <br><span class="example">Example: Los Angeles</span></label>
+                            <label for="hospital_search">Enter a Valid Zip Code <br><strong><em> ex: 90064</em></strong></label>
                             <br>
-                            <input id="hospital_search" class="city" type="text" value="">
+                            <input id="hospital_search" class="zipcode" type="text" value="" pattern="\d{5,5}(-\d{4,4})?">
                             <br>
-                            <button type="submit" class="sub-btn" id="hospital-sub" value="Submit">Search</button>
+                            <button type="submit" class="sub-btn" id="hospital-sub" value="Submit">Submit</button>
                         </div>
                     </div>
                     <div class="row doctor-search">
                         <div class="col-8 doctor_search_container hidden">
-                            <label for="doctor_search">Enter a State and City in the Following Format:
-                                <br><span class="example">Example: ca-los-angeles</span></label>
+                            <label for="doctor_search">Please Enter a State and City in the Following Format:
+                                <br><strong><em> ex: ca-los-angeles</em></strong></label>
                             <br>
                             <br>
                             <input id="doctor_search" type="text" value="">
                             <br>
-                            <button type="submit" class="sub-btn" id="doctor-sub" value="Submit">Search</button>
+                            <button type="submit" class="sub-btn" id="doctor-sub" value="Submit">Submit</button>
                         </div>
                     </div>
                 </form>
@@ -62,10 +61,14 @@
             <div class="col-8 hospital-list"></div>
             <div class="col-8 doctor-list"></div>
         </div>
-        <div class="col-8" id="toTop">
-        	<h3>Back to Top</h3>
-        </div>
     </main>
+    <!-- <footer>
+        <div class="row">
+            <div class="col-12">
+                <h4>Created by Ari Simon</h4>
+            </div>
+        </div>
+    </footer> -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="index.js"></script>
     </script>

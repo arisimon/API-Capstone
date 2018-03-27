@@ -9,20 +9,20 @@ function bindEventListeners() {
 //Medicare Hospital API request and response
 const HOSPITAL_URL = 'https://data.medicare.gov/resource/rbry-mqwu.json';
 
-function getHospitalList(city) {
+function getHospitalList(zip) {
     $.ajax({
         url: HOSPITAL_URL,
         type: "GET",
         dataType: "json",
         data: {
-            "$limit": 20,
-            "$q": city,
-            "$$app_token": "gK0Y0BlDIwKZ3ddE4ZxzecEJA",
+            "$limit": 15,
+            location_zip: zip,
+            "$$app_token": "gK0Y0BlDIwKZ3ddE4ZxzecEJA";
         }
 
 
     }).done(function(data) {
-        console.log("Retrieved " + data.length + " records from the dataset!");
+        alert("Retrieved " + data.length + " records from the dataset!");
         console.log(data);
         $.each(data, function(index, value) {
             let phone = data[index].phone_number;
@@ -34,61 +34,44 @@ function getHospitalList(city) {
 
             $('.hospital-list').append(
                 `<div class="col-8" id="content" class="clearfix">
-			        <div id="userphoto"><img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/128x128/hospital.png" alt="hospital-icon"></div>
-			          <h2>` + data[index].hospital_name + `</h2>     
-			        <section id="hospital-info">
-			          <h4><span>Hospital Type: </span>` + data[index].hospital_ownership + `</h4>
-			          <h4 class="address"><span>Address: </span>` + formatAddress + `, ` + formatCity + `, ` + data[index].state + ` ` + data[index].zip_code + `</h4>
-			          <h4><span>Phone Number: </span>` + formatPhone + `</h4>
-			          
-			        </section>
-			        
-			        <section id="detail">
-			          <p><i>How does this hospital compare to the national average?</i></p>
+        <div id="userphoto"><img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/128x128/hospital.png" alt="hospital-icon"></div>
+          <h2>` + data[index].hospital_name + `</h2>     
+        <section id="hospital-info">
+          <h4><span>Hospital Type: </span>` + data[index].hospital_ownership + `</h4>
+          <h4 class="address"><span>Address: </span>` + formatAddress + `, ` + formatCity + `, ` + data[index].state + ` ` + data[index].zip_code + `</h4>
+          <h4><span>Phone Number: </span>` + formatPhone + `</h4>
+          
+        </section>
+        
+        <section id="detail">
+          <p><i>How does this hospital compare to the national average?</i></p>
 
-			          <p class="detail"><span>Effectiveness of Care: </span>` + data[index].effectiveness_of_care_national_comparison + `</p>
-			          
-			          <p class="detail"><span>Patient Experience: </span>` + data[index].patient_experience_national_comparison + `</p>
-			          
-			          <p class="detail"><span>Mortality Rate: </span>` + data[index].mortality_national_comparison + `</p>
+          <p class="detail"><span>Effectiveness of Care: </span>` + data[index].effectiveness_of_care_national_comparison + `</p>
+          
+          <p class="detail"><span>Patient Experience: </span>` + data[index].patient_experience_national_comparison + `</p>
+          
+          <p class="detail"><span>Mortality Rate: </span>` + data[index].mortality_national_comparison + `</p>
 
-			          <p class="detail"><span>Safety of Care: </span>` + data[index].safety_of_care_national_comparison + `</p>
-			          
-			          <p class="detail"><span>Timeliness of Care: </span>` + data[index].timeliness_of_care_national_comparison + `</p>
+          <p class="detail"><span>Safety of Care: </span>` + data[index].safety_of_care_national_comparison + `</p>
+          
+          <p class="detail"><span>Timeliness of Care: </span>` + data[index].timeliness_of_care_national_comparison + `</p>
 
-			        </section>
-			      </div>
-			  </div>`
+        </section>
+      </div>
+  </div>`
             )
-            if ($('.doctor-list').length) {
-                $('.doctor-list').children().remove();
-                backToTop();
-            }
 
         });
 
     });
-}
+
+};
 
 //function to get proper formatting for JSON responses
 function toTitleCase(str) {
     return str.toLowerCase().split(' ').map(function(word) {
         return word.replace(word[0], word[0].toUpperCase());
     }).join(' ');
-}
-
-function backToTop() {
-    $(window).scroll(function() {
-        if ($(this).scrollTop()) {
-            $('#toTop').fadeIn();
-        } else {
-            $('#toTop').fadeOut();
-        }
-    });
-
-    $("#toTop").click(function() {
-        $("html, body").animate({ scrollTop: 0 }, 1000);
-    });
 }
 
 
@@ -114,35 +97,31 @@ function getDoctorList(location) {
             let phone = data[index].practices[0].phones[0].number;
             let formatPhone = `(` + phone.substr(0, 3) + `) ` + phone.substr(3, 3) + `-` + phone.substr(6, 4);
             console.log('data successfully loaded', data);
-            $('.doctor-list').append(
+            $('.hospital-list').append(
                 `<div class="col-8" id="content" class="clearfix">
-						      <div id="userphoto"><img src="` + data[index].profile.image_url + `" alt="avatar"></div>
-						      	<h2>` + data[index].profile.first_name + ` ` + data[index].profile.last_name + `, ` + data[index].profile.title + `</h2>     
-						      <section id="bio">
-						      	<h4><span>Specialties: </span>` + data[index].specialties[0].name +
+	      <div id="userphoto"><img src="` + data[index].profile.image_url + `" alt="avatar"></div>
+	      	<h2>` + data[index].profile.first_name + ` ` + data[index].profile.last_name + `, ` + data[index].profile.title + `</h2>     
+	      <section id="bio">
+	      	<h4><span>Specialties: </span>` + data[index].specialties[0].name +
                 `<p id="bio">` + data[index].profile.bio + `</p>
-						      </section>
+	      </section>
 
-						      <section id="details">
-						        <p><i>Contact Information is listed below:</i></p>
+	      <section id="details">
+	        <p><i>Contact Information is listed below:</i></p>
 
-						        <p class="detail"><span>Practice Name: </span>` + data[index].practices[0].name + `</p>
+	        <p class="detail"><span>Practice Name: </span>` + data[index].practices[0].name + `</p>
 
-						        <p class="detail"><span>Phone Number: </span>` + data[index].practices[0].phones[0].number + `</p>
+	        <p class="detail"><span>Phone Number: </span>` + data[index].practices[0].phones[0].number + `</p>
 
-						        <p class="detail"><span>Address: </span>` + data[index].practices[0].visit_address.street + `, ` +
+	        <p class="detail"><span>Address: </span>` + data[index].practices[0].visit_address.street + `, ` +
                 data[index].practices[0].visit_address.city + `, ` + data[index].practices[0].visit_address.state + ` ` + data[index].practices[0].visit_address.zip + `</p>
 
-						        <p class="detail"><span>National Provider Identifier Standard (NPI) Number: </span>` + data[index].npi + `</p>
-						      </section>
-						    </div>
-					  </div>`
+	        <p class="detail"><span>National Provider Identifier Standard (NPI) Number: </span>` + data[index].npi + `</p>
+	      </section>
+	    </div>
+  </div>`
 
             );
-            if ($('.hospital-list').length) {
-                $('.hospital-list').children().remove();
-                backToTop();
-            }
 
         });
     });
@@ -172,28 +151,28 @@ function hospitalOrDoctor() {
     );
 }
 
-
 //handle submit button and run request based off which button is pressed
-function checkButton() {
-    $("#decision-form button").click(function(event) {
-        event.preventDefault();
-        let which = $(this).attr("id");
-        console.log(which);
+    function checkButton() {
+        $("#decision-form button").click(function(event) {
+            event.preventDefault();
+            let which = $(this).attr("id");
+            console.log(which);
 
-        if (which == 'hospital-sub') {
-            let query = $('#hospital_search').val();
-            console.log(query);
-            getHospitalList(query);
+            if (which == 'hospital-sub') {
+                let query = $('#hospital_search').val();
+                console.log(query);
+                getHospitalList(query);
 
-        } else {
-            let input = $("#doctor_search").val();
-            console.log(input);
-            getDoctorList(input);
-        }
+            } else {
+                let input = $("#doctor_search").val();
+                console.log(input);
+                getDoctorList(input);
+            }
 
 
-    });
-};
+        });
+    };
+    checkButton()
 
 
 
