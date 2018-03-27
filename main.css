@@ -87,6 +87,9 @@ p {
     margin: 0 auto;
 }
 
+.hospital_search_container, .doctor_search_container {
+    text-align: center;
+}
 .radios {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
@@ -189,12 +192,6 @@ label[for="radio-hospital"] {
     display: block;
     position: relative;
     z-index: 100;
-}
-
-.decision-form input[type='text'] {
-    height: 35px;
-    width: 20em;
-    margin-top: 10px;
 }
 
 input[type="text"] {
