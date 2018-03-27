@@ -2,21 +2,21 @@
 
 function bindEventListeners() {
     hospitalOrDoctor();
-    handleSubmitButton();
+    checkButton();
 
 }
 
 //Medicare Hospital API request and response
 const HOSPITAL_URL = 'https://data.medicare.gov/resource/rbry-mqwu.json';
 
-function getHospitalList() {
+function getHospitalList(zip) {
     $.ajax({
         url: HOSPITAL_URL,
         type: "GET",
         dataType: "json",
         data: {
             "$limit": 15,
-            zip_code: $(`input[type='text']`).val(),
+            location_zip: zip,
         }
 
 
@@ -79,7 +79,7 @@ function toTitleCase(str) {
 const DOCTOR_URL = 'https://api.betterdoctor.com/2016-03-01/doctors';
 const API_KEY = '8ed32e7cd794252c93e1eaabd46b41d2';
 
-function getDoctorList() {
+function getDoctorList(location) {
     $.ajax({
         url: DOCTOR_URL,
         type: "GET",
@@ -87,7 +87,7 @@ function getDoctorList() {
         data: {
             limit: 15,
             user_key: API_KEY,
-            location: 'ca-los-angeles',
+            location: location,
         }
 
 
@@ -152,37 +152,27 @@ function hospitalOrDoctor() {
 }
 
 //handle submit button and run request based off which button is pressed
-function handleSubmitButton() {
-    let which;
-
     function checkButton() {
         $("#decision-form button").click(function(event) {
             event.preventDefault();
             let which = $(this).attr("id");
             console.log(which);
-            
 
-        });
-    };
-    checkButton();
-
-    function watchSubmit() {
-        $('form').submit(function(event) {
-            event.preventDefault();
-            ('js-search-form').hide();
-            if (which = 'hospital-sub') {
+            if (which == 'hospital-sub') {
                 let query = $('#hospital_search').val();
                 console.log(query);
+                getHospitalList(query);
 
             } else {
                 let input = $("#doctor_search").val();
                 console.log(input);
                 getDoctorList(input);
             }
+
+
         });
-    }
-    watchSubmit();
-}
+    };
+    checkButton()
 
 
 
