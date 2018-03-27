@@ -102,6 +102,7 @@ function backToTop() {
         if ($('.hospital-list').length) {
             $('.hospital-list').children().remove();
         }
+        $('.search-container').addClass('hidden');
 
     });
 }
