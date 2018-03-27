@@ -22,49 +22,48 @@
     <main role="main">
         <div class="row container">
             <div class="col-12 js-input-container">
-                <div class="col-8 radios">
-                    <h3>Are You Searching For a Hospital or a Doctor?</h3>
-                    <label for="radio_hospital">
-                        <input type="radio" id="radio_hospital" class="option-input" name="selection" value="Hospital">
-                        <img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/128x128/hospital.png" class="hospital-logo" alt="hospital-logo">
-                    </label>
-                    <label for="radio_doctor">
-                        <input type="radio" id="radio_doctor" class="option-input" name="selection" value="Doctor">
-                        <img src="https://www.shareicon.net/data/128x128/2016/08/18/813848_people_512x512.png" class="doctor-logo" alt="doctor-logo">
-                    </label>
-                </div>
-                <div class="row hospital-search">
-                    <div class="col-8 hospital_search_container hidden">
-                        <label for="hospital_search">Enter a City Name:
-                            <br>
-                            <br><span class="example">Example: Los Angeles</span></label>
-                        <br>
-                        <input id="hospital_search" class="city" type="text" value="">
-                        <br>
-                        <button type="submit" class="sub-btn" id="hospital-sub" value="Submit">Search</button>
+                <form class="row" id="decision-form">
+                    <div class="col-8 radios">
+                        <h3>Are You Searching For a Hospital or a Doctor?</h3>
+                        <label for="radio_hospital">
+                            <input type="radio" id="radio_hospital" class="option-input" name="selection" value="Hospital">
+                            <img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/128x128/hospital.png" class="hospital-logo" alt="hospital-logo">
+                        </label>
+                        <label for="radio_doctor">
+                            <input type="radio" id="radio_doctor" class="option-input" name="selection" value="Doctor">
+                            <img src="https://www.shareicon.net/data/128x128/2016/08/18/813848_people_512x512.png" class="doctor-logo" alt="doctor-logo">
+                        </label>
                     </div>
-                </div>
-                <div class="row doctor-search">
-                    <div class="col-8 doctor_search_container hidden">
-                        <label for="doctor_search">Enter a State and City in the Following Format:
+                    <div class="row hospital-search">
+                        <div class="col-8 hospital_search_container hidden">
+                            <label for="hospital_search">Enter a City Name:
+                                <br><br><span class="example">Example: Los Angeles</span></label>
                             <br>
-                            <br><span class="example">Example: ca-los-angeles</span></label>
-                        <br>
-                        <br>
-                        <input id="doctor_search" type="text" value="">
-                        <br>
-                        <button type="submit" class="sub-btn" id="doctor-sub" value="Submit">Search</button>
-                        
+                            <input id="hospital_search" class="city" type="text" value="">
+                            <br>
+                            <button type="submit" class="sub-btn" id="hospital-sub" value="Submit">Search</button>
+                        </div>
                     </div>
-                </div>
-            </div>
+                    <div class="row doctor-search">
+                        <div class="col-8 doctor_search_container hidden">
+                            <label for="doctor_search">Enter a State and City in the Following Format:
+                                <br><br><span class="example">Example: ca-los-angeles</span></label>
+                            <br>
+                            <br>
+                            <input id="doctor_search" type="text" value="">
+                            <br>
+                            <button type="submit" class="sub-btn" id="doctor-sub" value="Submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>`
         </div>
         <div class="row data-lists">
             <div class="col-8 hospital-list"></div>
             <div class="col-8 doctor-list"></div>
         </div>
         <div class="col-8" id="toTop">
-            <h3>Back to Top</h3>
+        	<h3>Back to Top</h3>
         </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
