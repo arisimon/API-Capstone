@@ -24,6 +24,7 @@
     -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
     -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    color: #0B2051;
 }
 
 #userphoto {
@@ -51,6 +52,9 @@
     display: none;
 }
 
+#hospital-details, #doctor-details {
+    font-size: 18px;
+}
 .detail {
     display: block;
     font-weight: normal;
@@ -70,9 +74,9 @@
     cursor: pointer;
 }
 
-#bio {
-    font-weight: 400;
-    font-variant: common-ligatures;
+#bio, #hospital-info {
+    font-weight: 700
+    font-size: 20px;
 }
 
 

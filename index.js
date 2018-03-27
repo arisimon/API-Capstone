@@ -31,11 +31,13 @@ function getHospitalList(city) {
             let formatAddress = toTitleCase(address);
             let city = data[index].city;
             let formatCity = toTitleCase(city);
+            let hospital = data[index].hospital_name;
+            let formatHospital = toTitleCase(hospital);
 
             $('.hospital-list').append(
                 `<div class="col-8" id="content" class="clearfix">
 			        <div id="userphoto"><img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/128x128/hospital.png" alt="hospital-icon"></div>
-			          <h2>` + data[index].hospital_name + `</h2>     
+			          <h2>` + formatHospital + `</h2>     
 			        <section id="hospital-info">
 			          <h4><span>Hospital Type: </span>` + data[index].hospital_ownership + `</h4>
 			          <h4 class="address"><span>Address: </span>` + formatAddress + `, ` + formatCity + `, ` + data[index].state + ` ` + data[index].zip_code + `</h4>
@@ -43,8 +45,8 @@ function getHospitalList(city) {
 			          
 			        </section>
 			        
-			        <section id="detail">
-			          <p><i>How does this hospital compare to the national average?</i></p>
+			        <section id="hospital-details">
+			          <p><i>How Does This Hospital Compare to the National Average?</i></p>
 
 			          <p class="detail"><span>Effectiveness of Care: </span>` + data[index].effectiveness_of_care_national_comparison + `</p>
 			          
@@ -123,7 +125,7 @@ function getDoctorList(location) {
                 `<p id="bio">` + data[index].profile.bio + `</p>
 						      </section>
 
-						      <section id="details">
+						      <section id="doctor-details">
 						        <p><i>Contact Information is listed below:</i></p>
 
 						        <p class="detail"><span>Practice Name: </span>` + data[index].practices[0].name + `</p>
@@ -186,8 +188,9 @@ function checkButton() {
             getHospitalList(query);
 
         } else {
-            let input = $("#doctor_search").val();
+            let input = $("#doctor_search").val().toLowerCase();
             console.log(input);
+
             getDoctorList(input);
         }
 
