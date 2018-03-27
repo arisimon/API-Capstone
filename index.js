@@ -22,6 +22,9 @@ function getHospitalList(city) {
 
 
     }).done(function(data) {
+        if (data.length == 0) {
+            alert('No results found. Please input another location!');
+        }
         console.log("Retrieved " + data.length + " records from the dataset!");
         console.log(data);
         $.each(data, function(index, value) {
@@ -111,6 +114,9 @@ function getDoctorList(location) {
 
 
     }).done(function(results) {
+        if (results.data == 0) {
+            alert('No results found. Please input another location!')
+        }
         let data = results.data;
         $.each(data, function(index, value) {
             let phone = data[index].practices[0].phones[0].number;
