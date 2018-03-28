@@ -199,15 +199,6 @@ function moveToContent() {
         '2000');
 }
 
-//format user doctor input to proper format
-function formatDoctorInput(input) {
-    let res = input.replace(/^[, ]+|[, ]+$|[, ]+/gi, " ").trim();
-    let split = res.split(' ');
-    let state = split.pop();
-    split.unshift(state);
-    let final = split.join('-');
-    final.toLowerCase();
-}
 
 
 //handle submit button and run request based off which button is pressed
@@ -226,10 +217,18 @@ function checkButton() {
 
         } else {
             let input = $("#doctor-search").val();
-            let formatInput = formatDoctorInput(input);
-            console.log(formatInput);
-            getDoctorList(formatInput);
-            moveToContent();
+            //format user doctor input to proper format
+            function formatDoctorInput(input) {
+                let res = input.replace(/[, ]+/g, " ").trim();
+                let split = res.split(' ');
+                let state = split.pop();
+                split.unshift(state);
+                let final = split.join('-');
+                console.log(final);
+                getDoctorList(final);
+                moveToContent();
+            }
+            
 
         }
 
