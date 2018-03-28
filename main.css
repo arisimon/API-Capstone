@@ -5,6 +5,7 @@ body {
     padding: 0;
     color: #FDB829;
     background-image: linear-gradient(to left top, #6699cc, #5a85b7, #4f72a1, #435f8d, #384d78);
+    font-variant: small-caps;
 }
 
 
@@ -19,6 +20,7 @@ h1 {
     overflow: hidden;
     white-space: nowrap;
     text-align: center;
+    font-variant: unset;
 }
 
 h1:before,
@@ -55,10 +57,14 @@ h2 {
     letter-spacing: normal;
     margin-bottom: 20px;
     padding: .1em 0;
-    color: #444;
+    color: #FDB829;
     position: relative;
     overflow: hidden;
     white-space: nowrap;
+}
+
+h3 {
+    font-size: 23px;
 }
 
 h4 {
@@ -103,7 +109,7 @@ form {
     padding-top: 25px;
 }
 
-.search_container {
+.search-container {
     margin-top: 35px;
 }
 
@@ -208,9 +214,9 @@ input {
     font-family: 'Open Sans', sans-serif;
 }
 
-label[for="hospital_search"],
-label[for="doctor_search"] {
-    line-height: 2.5em;
+label[for="hospital-search"],
+label[for="doctor-search"] {
+    line-height: 1.5em;
     font-size: 24px;
     font-family: 'Montserrat', sans-serif;
 }
