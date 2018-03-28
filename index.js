@@ -201,7 +201,7 @@ function moveToContent() {
 
 //format user doctor input to proper format
 function formatDoctorInput(input) {
-    let res = input.replace(/^[, ]+|[, ]+$|[, ]+/g, " ").trim();
+    let res = input.replace(/^[, ]+|[, ]+$|[, ]+/gi, " ").trim();
     let split = res.split(' ');
     let state = split.pop();
     split.unshift(state);
@@ -227,7 +227,6 @@ function checkButton() {
         } else {
             let input = $("#doctor-search").val();
             let formatInput = formatDoctorInput(input);
-            return formatInput;
             console.log(formatInput);
             getDoctorList(formatInput);
             moveToContent();
