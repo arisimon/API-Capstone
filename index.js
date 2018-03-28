@@ -199,6 +199,13 @@ function moveToContent() {
         '2000');
 }
 
+function formatDoctorInput(value) {
+                let res = value.replace(/[, ]+/g, " ").trim();
+                let split = res.split(' ');
+                let state = split.pop();
+                split.unshift(state);
+                let final = split.join('-');
+            }
 
 
 //handle submit button and run request based off which button is pressed
@@ -218,23 +225,14 @@ function checkButton() {
         } else {
             let input = $("#doctor-search").val();
             //format user doctor input to proper format
-            function formatDoctorInput(input) {
-                let res = input.replace(/[, ]+/g, " ").trim();
-                let split = res.split(' ');
-                let state = split.pop();
-                split.unshift(state);
-                let final = split.join('-');
-                console.log(final);
-                getDoctorList(final);
+            let result = formatDoctorInput(input);
+                getDoctorList(result);
                 moveToContent();
             }
             
 
-        }
-
-
-    });
-};
+        });
+}
 
 
 
