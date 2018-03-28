@@ -39,8 +39,8 @@ function getHospitalList(city) {
 
             $('.hospital-list').append(
                 `<div class="col-8" id="content" class="clearfix">
-                    <div id="userphoto"><img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/128x128/hospital.png" alt="hospital-icon"></div>
-                      <h2>` + formatHospital + `</h2>     
+                    <div id="userphoto"><img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/128x128/hospital.png" alt="hospital-icon" id="hospital-icon"></div>
+                      <h2>` + formatHospital + `</h2>    
                     <section id="hospital-info">
                       <h4><span>Hospital Type: </span>` + data[index].hospital_ownership + `</h4>
                       <h4 class="address"><span>Address: </span>` + formatAddress + `, ` + formatCity + `, ` + data[index].state + ` ` + data[index].zip_code + `</h4>
@@ -136,7 +136,7 @@ function getDoctorList(location) {
             $('.doctor-list').append(
                 `<div class="col-8" id="content" class="clearfix">
                               <div id="userphoto"><img src="` + data[index].profile.image_url + `" alt="avatar"></div>
-                                <h2>` + data[index].profile.first_name + ` ` + data[index].profile.last_name + `, ` + data[index].profile.title + `</h2>     
+                                <h2>` + data[index].profile.first_name + ` ` + data[index].profile.last_name + `, ` + data[index].profile.title + `</h2>   
                               <section id="bio">
                                 <h4><span>Specialties: </span>` + data[index].specialties[0].name +
                 `<p id="bio">` + data[index].profile.bio + `</p>

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Provider Search</title>
     <link rel="shortcut icon" type="image/png" href="http://www.mobilehealthsummit.ca/wp-content/uploads/2016/11/mhealth-favicon.png" />
     <link href="main.css" rel="stylesheet" type="text/css">
@@ -14,15 +14,14 @@
 
 <body>
     <header role="banner">
-        <div class="row">
             <div class="col-12">
                 <h1>Healthcare Provider Database</h1>
             </div>
     </header>
-    <main role="main">
+    <main role="main" class="col-12">
         <div class="row container">
             <div class="col-12 js-input-container">
-                <form class="row" id="decision-form">
+                <form class="col-12" id="decision-form">
                     <div class="col-8 radios">
                         <h3>Are You Searching For a Hospital or a Doctor?</h3>
                         <label for="radio-hospital">
@@ -59,8 +58,8 @@
             </div>
         </div>
         <div class="row data-lists">
-            <div class="col-8 hospital-list"></div>
-            <div class="col-8 doctor-list"></div>
+            <div class="col-12 hospital-list"></div>
+            <div class="col-12 doctor-list"></div>
         </div>
         <div class="col-8" id="toTop">
         	<h3>Back to Top</h3>

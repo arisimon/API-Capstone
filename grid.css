@@ -10,6 +10,14 @@
 }
 
 
+
+
+
+
+
+
+
+
 /* Clearfix */
 
 .row::before,
@@ -25,11 +33,19 @@
 .col-3,
 .col-4,
 .col-6,
-.col-12 {
+.col-8 .col-12 {
     float: left;
     padding-left: 1.04166666%;
     padding-right: 1.04166666%;
 }
+
+
+
+
+
+
+
+
 
 
 /* Mobile defaults */
@@ -37,9 +53,17 @@
 .col-3,
 .col-4,
 .col-6,
-.col-12 {
+.col-8 .col-12 {
     width: 100%;
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -65,4 +89,111 @@
     .col-12 {
         width: 100%;
     }
+}
+
+
+@media only screen and (max-width: 430px) {
+    /* 3 columns, 3/12 in % */
+    .col-3 {
+        width: 25%;
+    }
+
+    /* 4 columns, 4/12 in % */
+    .col-4 {
+        width: 33.33%;
+    }
+
+    /* 6 columns 6/12 in % */
+    .col-6 {
+        width: 50%;
+    }
+
+    .col-8 {
+        width: 66.66%;
+    }
+
+    /* 12 columns, 12/12 */
+    .col-12 {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 23px;
+        letter-spacing: normal;
+        line-height: .05em;
+        overflow: visible;
+        padding-top: 50px;
+    }
+
+    h1:before,
+    h1:after {
+        display: none;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        line-height: normal;
+        white-space: normal;
+    }
+
+    #decision-form {
+        text-align: center;
+    }
+
+    img {
+        height: 75px;
+    }
+
+    .radios>h3 {
+        position: absolute;
+        top: 115px
+    }
+
+    label>input[type="radio"]+img {
+        position: absolute;
+        top: 225px;
+    }
+
+    input[type="text"] {
+        margin-top: 1em;
+    }
+
+    label[for="hospital-search"] {
+        line-height: 0;
+    }
+    label[for="doctor-search"] {
+        line-height: 1em;
+    }
+
+    .search-container {
+        position: absolute;
+        top: 300px;
+    }
+
+    #doctor-sub,
+    #hospital-sub {
+        position: absolute;
+        top: auto;
+    }
+
+    .doctor-logo {
+        margin-left: 30px;
+    }
+
+    .hospital-list,
+    .doctor-list {
+        position: relative;
+        top: 400px;
+    }
+
+    .hospital-list>h2,
+    .doctor-list>h2 {}
+}
+
+#hospital-icon {
+  height: 110px;
+}
+
+
+
 }
