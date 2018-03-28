@@ -205,6 +205,7 @@ function formatDoctorInput(value) {
                 let state = split.pop();
                 split.unshift(state);
                 let final = split.join('-');
+                return final;
             }
 
 
