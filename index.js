@@ -30,20 +30,15 @@ function getHospitalList(city) {
         $.each(data, function(index, value) {
             let phone = data[index].phone_number;
             let formatPhone = `(` + phone.substr(0, 3) + `) ` + phone.substr(3, 3) + `-` + phone.substr(6, 4);
-            let address = data[index].address;
-            let formatAddress = toTitleCase(address);
-            let city = data[index].city;
-            let formatCity = toTitleCase(city);
-            let hospital = data[index].hospital_name;
-            let formatHospital = toTitleCase(hospital);
+
 
             $('.hospital-list').append(
                 `<div class="col-8" id="content" class="clearfix">
                     <div id="userphoto"><img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/128x128/hospital.png" alt="hospital-icon" id="hospital-icon"></div>
-                      <h2>` + formatHospital + `</h2>    
+                      <h2>` + data[index].hospital_name + `</h2>    
                     <section id="hospital-info">
                       <h4><span>Hospital Type: </span>` + data[index].hospital_ownership + `</h4>
-                      <h4 class="address"><span>Address: </span>` + formatAddress + `, ` + formatCity + `, ` + data[index].state + ` ` + data[index].zip_code + `</h4>
+                      <h4 class="address"><span>Address: </span>` + data[index].address + `, ` + data[index].city + `, ` + data[index].state + ` ` + data[index].zip_code + `</h4>
                       <h4><span>Phone Number: </span>` + formatPhone + `</h4>
                       
                     </section>
@@ -75,22 +70,17 @@ function getHospitalList(city) {
     });
 }
 
-//function to get proper formatting for JSON responses
-function toTitleCase(str) {
-    return str.toLowerCase().split(' ').map(function(word) {
-        return word.replace(word[0], word[0].toUpperCase());
-    }).join(' ');
-}
 
 //control back to top button
 function backToTop() {
     $(window).scroll(function() {
-        if ($(this).scrollTop()) {
+        if ($(this).scrollTop() > $('body').height() / 2) {
             $('#toTop').fadeIn();
         } else {
             $('#toTop').fadeOut();
         }
     });
+
     //actions on to top button click -- essentially reset page
     $("#toTop").click(function() {
         $("html, body").animate({ scrollTop: 0 }, 1000);
@@ -200,13 +190,13 @@ function moveToContent() {
 }
 
 function formatDoctorInput(value) {
-                let res = value.replace(/[, ]+/g, " ").trim();
-                let split = res.split(' ');
-                let state = split.pop();
-                split.unshift(state);
-                let final = split.join('-');
-                return final;
-            }
+    let res = value.replace(/[, ]+/g, " ").trim();
+    let split = res.split(' ');
+    let state = split.pop();
+    split.unshift(state);
+    let final = split.join('-').toLowerCase();
+    return final;
+}
 
 
 //handle submit button and run request based off which button is pressed
@@ -227,12 +217,12 @@ function checkButton() {
             let input = $("#doctor-search").val();
             //format user doctor input to proper format
             let result = formatDoctorInput(input);
-                getDoctorList(result);
-                moveToContent();
-            }
-            
+            getDoctorList(result);
+            moveToContent();
+        }
 
-        });
+
+    });
 }
 
 
