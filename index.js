@@ -121,11 +121,11 @@ function getDoctorList(location) {
             console.log('data successfully loaded', data);
             $('.doctor-list').append(
                 `<div class="col-8" id="content" class="clearfix">
-                              <div id="userphoto"><img src="` + data[index].profile.image_url + `" alt="avatar"></div>
+                              <div id="userphoto"><img src="` + data[index].profile.image_url + `" alt="user photo"></div>
                                 <h2>` + data[index].profile.first_name + ` ` + data[index].profile.last_name + `, ` + data[index].profile.title + `</h2>   
                               <section id="bio">
-                                <h4><span>Specialties: </span>` + data[index].specialties[0].name +
-                `<p id="bio">` + data[index].profile.bio + `</p>
+                                <h3><span>Specialties: </span>` + data[index].specialties[0].name + `</h3>
+                <p id="bio">` + data[index].profile.bio + `</p>
                               </section>
 
                               <section id="doctor-details">
