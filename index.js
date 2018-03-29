@@ -211,17 +211,28 @@ function checkButton() {
         let which = $(this).attr("id");
         console.log(which);
 
+
         if (which === 'hospital-sub') {
             let query = $('#hospital-search').val();
-            console.log(query);
-            getHospitalList(query);
-            moveToContent();
+            if (query == '') {
+                alert('Please provide a valid input!');
+            } else {
+                console.log(query);
+                getHospitalList(query);
+                moveToContent();
+            }
+
 
         } else {
             let input = $("#doctor-search").val();
-            let result = formatDoctorInput(input);
-            getDoctorList(result);
-            moveToContent();
+            if (input == '') {
+                alert('Please provide a valid input!');
+            } else {
+                let result = formatDoctorInput(input);
+                getDoctorList(result);
+                moveToContent();
+            }
+
         }
 
 
