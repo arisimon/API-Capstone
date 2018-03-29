@@ -82,6 +82,23 @@ p {
     margin: 0 auto;
 }
 
+fieldset {
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 0.35em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: none;
+}
+
+legend {
+    font-size: 23px;
+    font-family: 'Montserrat', sans-serif;
+    padding-left: 30px;
+}
+
 .radios {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
