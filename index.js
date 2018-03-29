@@ -38,9 +38,9 @@ function getHospitalList(city) {
                     <div id="userphoto"><img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/128x128/hospital.png" alt="hospital-icon" id="hospital-icon"></div>
                       <h2>` + data[index].hospital_name + `</h2>    
                     <section id="hospital-info">
-                      <h4><span>Hospital Type: </span>` + data[index].hospital_ownership + `</h4>
-                      <h4 class="address"><span>Address: </span>` + data[index].address + `, ` + data[index].city + `, ` + data[index].state + ` ` + data[index].zip_code + `</h4>
-                      <h4><span>Phone Number: </span>` + formatPhone + `</h4>
+                      <h3><span>Hospital Type: </span>` + data[index].hospital_ownership + `</h3>
+                      <h3 class="address"><span>Address: </span>` + data[index].address + `, ` + data[index].city + `, ` + data[index].state + ` ` + data[index].zip_code + `</h3>
+                      <h3><span>Phone Number: </span>` + formatPhone + `</h3>
                       
                     </section>
                     
