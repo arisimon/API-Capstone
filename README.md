@@ -57,6 +57,6 @@ Doctor Search Results:
 
 ## Acknowledgments
 
-* **Jillian Kim** - ** - Mentor Extraordinaire
-* **Nicholas Below** - ** - Debugger and Mentor
-* **Koesmanto Bong** - ** - Deugger and Mentor
+* **Jillian Kim** - Mentor Extraordinaire
+* **Nicholas Below** - Debugger and Mentor
+* **Koesmanto Bong** - Deugger and Mentor
