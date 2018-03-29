@@ -4,6 +4,9 @@ body {
     margin: 0;
     padding: 0;
     color: #FDB829;
+    background-image: -webkit-gradient(linear, right bottom, left top, from(#6699cc), color-stop(#5a85b7), color-stop(#4f72a1), color-stop(#435f8d), to(#384d78));
+    background-image: -webkit-linear-gradient(right bottom, #6699cc, #5a85b7, #4f72a1, #435f8d, #384d78);
+    background-image: -o-linear-gradient(right bottom, #6699cc, #5a85b7, #4f72a1, #435f8d, #384d78);
     background-image: linear-gradient(to left top, #6699cc, #5a85b7, #4f72a1, #435f8d, #384d78);
     font-variant: small-caps;
 }
@@ -171,6 +174,8 @@ label[for="radio-hospital"] {
     left: 0;
     height: 40px;
     width: 40px;
+    -webkit-transition: all 0.15s ease-out 0s;
+    -o-transition: all 0.15s ease-out 0s;
     transition: all 0.15s ease-out 0s;
     background: #b0b1b1;
     border: none;
@@ -194,7 +199,6 @@ label[for="radio-hospital"] {
 
 .option-input:checked::after {
     -webkit-animation: click-wave 0.8s;
-    -moz-animation: click-wave 0.8s;
     animation: click-wave 0.8s;
     background: #FDB829;
     content: '';
@@ -222,6 +226,7 @@ input[type=text]:focus {
     border: 3px solid #FDB829;
 }
 
+
 input {
     font-family: 'Open Sans', sans-serif;
 }
@@ -242,9 +247,11 @@ button[type="submit"] {
     left: 50%;
     top: 50%;
     -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
     border-radius: 3px;
     margin-top: 20px;
+    position: -webkit-sticky;
     position: sticky;
     font-size: 20px;
     font-family: 'Open Sans', sans-serif;
