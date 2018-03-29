@@ -1,9 +1,9 @@
 'use strict';
-/*jshint strict:false */
 
 function bindEventListeners() {
     hospitalOrDoctor();
     checkButton();
+
 
 }
 
@@ -86,8 +86,8 @@ function backToTop() {
     //actions on to top button click -- essentially reset page
     $("#toTop").click(function() {
         $("html, body").animate({ scrollTop: 0 }, 1000);
-         location.reload();
-         bindEventListeners();
+        location.reload();
+        bindEventListeners();
 
     });
 }
@@ -156,14 +156,17 @@ function getDoctorList(location) {
 
 //actions if hospital button selected
 function createHospitalInput(input) {
-                    $('.hospital-search-container').removeClass('hidden');
-                    $('.doctor-search-container').addClass('hidden');
-                }
+    $('.hospital-search-container').removeClass('hidden');
+    $('.doctor-search-container').addClass('hidden');
+}
 //actions if doctor button selected
 function createDoctorInput(input) {
-                    $('.doctor-search-container').removeClass('hidden');
-                    $('.hospital-search-container').addClass('hidden');
-                }
+    if (('.hospital-search-container').length) {
+        $('.hospital-search-container').addClass('hidden');
+    }
+    $('.doctor-search-container').removeClass('hidden');
+
+}
 
 //load hospital or doctor search based off radio input.
 function hospitalOrDoctor() {
@@ -198,7 +201,6 @@ function formatDoctorInput(value) {
     let final = split.join('-').toLowerCase();
     return final;
 }
-
 
 //handle submit button and run request based off which button is pressed
 function checkButton() {

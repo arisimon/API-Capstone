@@ -12,6 +12,7 @@
 
 
 
+
 /* Clearfix */
 
 .row::before,
@@ -35,6 +36,7 @@
 
 
 
+
 /* Mobile defaults */
 
 .col-3,
@@ -43,6 +45,7 @@
 .col-8 .col-12 {
     width: 100%;
 }
+
 
 
 
@@ -58,6 +61,7 @@
         width: 100%;
     }
 }
+
 
 
 
@@ -107,10 +111,10 @@
     }
 
     h2 {
-    white-space: normal;
-    font-size: 1.1em;
-    overflow: auto;
-} 
+        white-space: normal;
+        font-size: 1.1em;
+        overflow: auto;
+    }
 
 
     #decision-form {
