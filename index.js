@@ -162,7 +162,7 @@ function hospitalOrDoctor() {
 
     $('input:radio').change(
         function() {
-            if ($(this).val() == 'Hospital') {
+            if ($(this).val() === 'Hospital') {
                 function createHospitalInput() {
                     $('.hospital-search-container').removeClass('hidden');
                     $('.doctor-search-container').addClass('hidden');

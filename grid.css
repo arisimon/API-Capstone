@@ -12,13 +12,6 @@
 
 
 
-
-
-
-
-
-
-
 /* Clearfix */
 
 .row::before,
@@ -44,6 +37,7 @@
 
 
 
+
 /* Mobile defaults */
 
 .col-3,
@@ -52,6 +46,7 @@
 .col-8 .col-12 {
     width: 100%;
 }
+
 
 
 
@@ -73,11 +68,17 @@
         width: 50%;
     }
 
+    .col-8 {
+        width: 66.66%;
+        margin: 0 auto;
+    }
+
     /* 12 columns, 12/12 */
     .col-12 {
         width: 100%;
     }
 }
+
 
 
 /* small screens */
@@ -161,8 +162,16 @@
     }
 
     .search-container {
-        position: absolute;
         top: 300px;
+    }
+
+    .hospital-search-container {
+        position: absolute;
+        left: 50px;
+    }
+
+    .doctor-search-container {
+        position: absolute;
     }
 
     #doctor-sub,
@@ -188,6 +197,7 @@
 #hospital-icon {
     height: 110px;
 }
+
 
 
 
