@@ -1,4 +1,5 @@
 'use strict';
+/*jshint strict:false */
 
 function bindEventListeners() {
     hospitalOrDoctor();
@@ -22,7 +23,7 @@ function getHospitalList(city) {
 
 
     }).done(function(data) {
-        if (data.length == 0) {
+        if (data.length === 0) {
             alert('No results found. Please input another location!');
         }
         console.log("Retrieved " + data.length + " records from the dataset!");
@@ -59,7 +60,7 @@ function getHospitalList(city) {
                     </section>
                   </div>
               </div>`
-            )
+            );
             if ($('.doctor-list').length) {
                 $('.doctor-list').children().remove();
                 backToTop();
@@ -85,7 +86,7 @@ function backToTop() {
     //actions on to top button click -- essentially reset page
     $("#toTop").click(function() {
         $("html, body").animate({ scrollTop: 0 }, 1000);
-         location.reload()
+         location.reload();
          bindEventListeners();
 
     });
@@ -109,7 +110,7 @@ function getDoctorList(location) {
 
 
     }).done(function(results) {
-        if (results.data == 0) {
+        if (results.data === 0) {
             alert(`No results found. Check your formatting!`);
         }
         let data = results.data;
@@ -152,26 +153,29 @@ function getDoctorList(location) {
     });
 }
 
+//actions if hospital button selected
+function createHospitalInput(input) {
+                    $('.hospital-search-container').removeClass('hidden');
+                    $('.doctor-search-container').addClass('hidden');
+                }
+//actions if doctor button selected
+function createDoctorInput(input) {
+                    $('.doctor-search-container').removeClass('hidden');
+                    $('.hospital-search-container').addClass('hidden');
+                }
+
 //load hospital or doctor search based off radio input.
 function hospitalOrDoctor() {
 
     $('input:radio').change(
         function() {
             if ($(this).val() === 'Hospital') {
-                function createHospitalInput() {
-                    $('.hospital-search-container').removeClass('hidden');
-                    $('.doctor-search-container').addClass('hidden');
-                }
                 createHospitalInput();
 
 
             } else {
-                function createDoctorInput() {
-                    $('.doctor-search-container').removeClass('hidden');
-                    $('.hospital-search-container').addClass('hidden');
-                }
                 createDoctorInput();
-            };
+            }
         }
     );
 }
@@ -184,6 +188,7 @@ function moveToContent() {
         '2000');
 }
 
+//takes input in doctor input and converts it from fromat Los Angeles, CA -> ca-los-angeles to use in AJAX request
 function formatDoctorInput(value) {
     let res = value.replace(/[, ]+/g, " ").trim();
     let split = res.split(' ');
