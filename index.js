@@ -189,7 +189,7 @@ function moveToContent() {
     $('html,body').animate({
             scrollTop: $(".data-lists").offset().top
         },
-        '2000');
+        '1000');
 }
 
 //takes input in doctor input and converts it from fromat Los Angeles, CA -> ca-los-angeles to use in AJAX request
@@ -201,6 +201,7 @@ function formatDoctorInput(value) {
     let final = split.join('-').toLowerCase();
     return final;
 }
+
 
 //handle submit button and run request based off which button is pressed
 function checkButton() {
@@ -218,7 +219,6 @@ function checkButton() {
 
         } else {
             let input = $("#doctor-search").val();
-            //format user doctor input to proper format
             let result = formatDoctorInput(input);
             getDoctorList(result);
             moveToContent();
