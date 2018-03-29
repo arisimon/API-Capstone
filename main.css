@@ -270,6 +270,7 @@ button[type="submit"]:after {
     font-size: 18px;
     position: fixed;
     bottom: 0;
-    right: 5px;
+    right: 10px;
     display: none;
+    text-align: right;
 }

@@ -79,20 +79,14 @@ function backToTop() {
         } else {
             $('#toTop').fadeOut();
         }
+
     });
 
     //actions on to top button click -- essentially reset page
     $("#toTop").click(function() {
         $("html, body").animate({ scrollTop: 0 }, 1000);
-        $("input[type='text']").val('');
-
-        if ($('.doctor-list').length) {
-            $('.doctor-list').children().remove();
-        }
-        if ($('.hospital-list').length) {
-            $('.hospital-list').children().remove();
-        }
-        $('.search-container').addClass('hidden');
+         location.reload()
+         bindEventListeners();
 
     });
 }
@@ -116,7 +110,7 @@ function getDoctorList(location) {
 
     }).done(function(results) {
         if (results.data == 0) {
-            alert('No results found. Please input another location!')
+            alert(`No results found. Check your formatting!`);
         }
         let data = results.data;
         $.each(data, function(index, value) {
@@ -151,6 +145,7 @@ function getDoctorList(location) {
             if ($('.hospital-list').length) {
                 $('.hospital-list').children().remove();
                 backToTop();
+
             }
 
         });
@@ -207,7 +202,7 @@ function checkButton() {
         let which = $(this).attr("id");
         console.log(which);
 
-        if (which == 'hospital-sub') {
+        if (which === 'hospital-sub') {
             let query = $('#hospital-search').val();
             console.log(query);
             getHospitalList(query);
