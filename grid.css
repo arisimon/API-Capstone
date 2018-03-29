@@ -35,9 +35,6 @@
 
 
 
-
-
-
 /* Mobile defaults */
 
 .col-3,
@@ -49,31 +46,14 @@
 
 
 
-
 /* Non-mobile, grid */
 
 @media only screen and (min-width: 640px) {
-    /* 3 columns, 3/12 in % */
-    .col-3 {
-        width: 25%;
-    }
-
-    /* 4 columns, 4/12 in % */
-    .col-4 {
-        width: 33.33%;
-    }
-
-    /* 6 columns 6/12 in % */
-    .col-6 {
-        width: 50%;
-    }
-
     .col-8 {
         width: 66.66%;
         margin: 0 auto;
     }
 
-    /* 12 columns, 12/12 */
     .col-12 {
         width: 100%;
     }
@@ -127,10 +107,11 @@
     }
 
     h2 {
-        font-size: 1.5em;
-        line-height: normal;
-        white-space: normal;
-    }
+    white-space: normal;
+    font-size: 1.1em;
+    overflow: auto;
+} 
+
 
     #decision-form {
         text-align: center;
@@ -190,16 +171,8 @@
         top: 400px;
     }
 
-    .hospital-list>h2,
-    .doctor-list>h2 {}
-}
 
-#hospital-icon {
-    height: 110px;
-}
-
-
-
-
-
+    #hospital-icon {
+        height: 110px;
+    }
 }
