@@ -105,6 +105,7 @@ function getDoctorList(location) {
         data: {
             user_key: API_KEY,
             location: location,
+            limit: 20,
         }
 
 
