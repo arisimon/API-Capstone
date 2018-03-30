@@ -2,6 +2,7 @@
 
 function bindEventListeners() {
     hospitalOrDoctor();
+    handleEnter();
     checkButton();
 
 
@@ -203,10 +204,22 @@ function formatDoctorInput(value) {
 }
 
 
+// function handleEnter() {
+//     $('#hospital-search' || '#doctor-search').keypress(function(e){
+//         if(e.which == 13){//Enter key pressed
+//             checkButton();//Trigger search button click event
+//         }
+
+// });
+// }
+
+
+
+
 //handle submit button and run request based off which button is pressed
 function checkButton() {
 
-    $("#decision-form button").click(function(event) {
+    $("#decision-form button").on(click, function(event) {
         event.preventDefault();
         let which = $(this).attr("id");
         console.log(which);
