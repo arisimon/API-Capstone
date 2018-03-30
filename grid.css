@@ -139,9 +139,7 @@
         margin-top: 1em;
     }
 
-    label[for="hospital-search"] {
-        line-height: 0;
-    }
+    label[for="hospital-search"],
     label[for="doctor-search"] {
         line-height: 1em;
     }
