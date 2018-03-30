@@ -35,6 +35,10 @@ Doctor Search Results:
 * Javascript
 * jQuery
 
+### APIs Used
+* BetterDoctorAPI
+* Data.Medicare.Gov Hospital Compare API
+
 ## Skills Learned
 * Integration and implementation of multiple APIs
 * Reformatting user inputs on backend to use for AJAX requests
