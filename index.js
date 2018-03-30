@@ -206,9 +206,9 @@ function formatDoctorInput(value) {
 //handle submit button and run request based off which button is pressed
 function checkButton() {
 
-    $("#decision-form button").click(function(event) {
+    $('form').submit(function(event) {
         event.preventDefault();
-        let which = $(this).attr("id");
+        let which = $(this).find('button').attr("id");
         console.log(which);
 
 
